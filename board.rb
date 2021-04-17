@@ -1,3 +1,4 @@
+require_relative "card"
 
 class Board 
   attr_reader :size 
