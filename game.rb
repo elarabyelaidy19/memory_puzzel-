@@ -1,3 +1,6 @@
+require_relative "board" 
+require_relative "human_player" 
+
 class Game 
   attr_reader :player 
 
@@ -23,10 +26,29 @@ class Game
     end 
   end 
 
+  def get_player_input 
+    pos = nil 
+
+    until pos && valid_pos?(pos) 
+      pos = player.get_input 
+    end 
+
+    pos 
+  end 
+
+
+
   def match?(pos1, pos2) 
     board[pos1] == board[pos2] 
   end 
 
   def make_guess(pos) 
     revealed_value = board.reveal(pos) 
-    pl
+    player.receive_revealed_card(pos, revealed_value) 
+    board.render 
+
+    compare_guess(pos)
+    sleep(1) 
+    board.render 
+  end 
+  
