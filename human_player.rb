@@ -20,6 +20,7 @@ class HumanPlayer
   end 
 
   def receive_revealed_card(pos, value) 
+    
   end 
 
   def receive_match(pos1, pos2) 
