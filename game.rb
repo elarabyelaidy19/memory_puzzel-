@@ -61,3 +61,18 @@ class Game
 
     puts "Congratulations, you win!" 
   end 
+
+  def valid_pos?(pos) 
+    pos.is_a?(Array) && 
+    pos.count == 2 &&
+    pos.all? { |x| x.between?(0, board.size - 1) }
+  end 
+
+  private 
+
+  attr_accessor :previous_guess 
+  attr_reader :board 
+end 
+
+
+
