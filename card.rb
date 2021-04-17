@@ -32,5 +32,15 @@ class Card
     @revealed = true 
   end 
 
-  
+  def revealed? 
+    @revealed 
+  end 
+
+  def ==(object) 
+    object.is_a?(self.class) && object.value == value 
+  end 
+
+end 
+
+
 
